@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
 
+apt install software-properties-common
 add-apt-repository ppa:webupd8team/java
 apt-get update
-sudo apt-get install oracle-java8-installer
-apt-get install -y apache2
-apt-get install maven
+apt-get install oracle-java8-installer
 
-if ! [ -L /var/www ]; then
-  rm -rf /var/www
-  ln -fs /vagrant /var/www
-fi
+# export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre"
+# export PATH=$JAVA_HOME/bin:$PATH
+
+echo export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre >> /etc/profile.d/java.sh
+echo export PATH=\${JAVA_HOME}/bin:\${PATH} >> /etc/profile.d/java.sh
+
+apt-get install -y apache2
+apt install -y maven
+
+# if ! [ -L /var/www ]; then
+#   rm -rf /var/www
+#   ln -fs /vagrant /var/www
+# fi
+
+# cp settings.xml /etc/maven/
+# mvn compile

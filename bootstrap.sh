@@ -8,6 +8,8 @@ apt-get install oracle-java8-installer
 echo export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre >> /etc/profile.d/java.sh
 echo export PATH=\${JAVA_HOME}/bin:\${PATH} >> /etc/profile.d/java.sh
 
+apt install openjdk-8-jdk-headless
+
 apt-get install -y apache2
 apt install -y maven
 
